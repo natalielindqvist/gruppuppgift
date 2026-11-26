@@ -1,20 +1,19 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents the restaurant's menu. The menu contains a collection of Meal objects.
- *<br><br>
+ * <br><br>
  * Meals can be added and searched for. The menu can also display all meals
  * or only meals belonging to a specific category.
  */
-public class Menu
-{
+public class Menu {
     private ArrayList<Meal> meals;
 
     /**
      * Creates an empty menu.
      */
-    public Menu()
-    {
+    public Menu() {
         meals = new ArrayList<>();
     }
 
@@ -24,8 +23,7 @@ public class Menu
      *
      * @param meal the meal to add
      */
-    public void addMeal(Meal meal)
-    {
+    public void addMeal(Meal meal) {
         containsMeal(meal.getName().toLowerCase());
         meals.add(meal);
     }
@@ -36,14 +34,13 @@ public class Menu
      * @param mealName the name of the meal to search for
      * @return the matching Meal object, or null if no matching meal is found
      */
-    public Meal findMeal(String mealName)
-    {
+    public Meal findMeal(String mealName) {
 
         boolean alreadyExist = false;
         for (Meal line : meals) {
 
 
-            if (line.contains(mealName)) {
+            if (line.getName().contains(mealName)) {
                 System.out.println("Här är måltiden ");
                 alreadyExist = true;
                 return line;
@@ -67,20 +64,18 @@ public class Menu
         for (Meal line : meals) {
 
 
-            if (line.contains(mealName)) {
+            if (line.getName().contains(mealName)) {
                 System.out.println(" Finns redan ");
-                alreadyExist=true;
+                alreadyExist = true;
                 break;
 
-            }
-            else {
+            } else {
                 System.out.println(" Har lagts till ");
             }
 
-
         }
 
-       return alreadyExist;
+        return alreadyExist;
     }
 
     /**
@@ -90,20 +85,18 @@ public class Menu
      *
      * @param category the category to display, or "All" to display the entire menu
      */
-    public void showMenu(String category)
-    {
-        for (Meal line: meals)
-        {
-            if (category=="All"){
+    public void showMenu(String category) {
+        for (Meal line : meals) {
+            if (category == "All") {
 
-            System.out.println(line.getName());
-            if(line.getCategory().equals(category)){
                 System.out.println(line.getName());
+                if (line.getCategory().equals(category)) {
+                    System.out.println(line.getName());
+                }
+
+            }
+
         }
-
-    }
-
-
     }
 
     /**
@@ -111,8 +104,11 @@ public class Menu
      *
      * @return a copy of the menu's meal list
      */
-    public ArrayList<Meal> getMeals()
-    {
-        return null;
+    public ArrayList<Meal> getMeals() {
+        ArrayList<Meal> returnList = new ArrayList<>();
+        for (Meal line : meals) {
+            System.out.println(line.getName());
+        }
+        return returnList;
     }
 }
